@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 3.9%;
+  --primary: 264 53% 60%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 267 71% 67%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 96.1%;
+  --muted-foreground: 0 0% 45.1%;
+  --accent: 267 71% 67%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 89.8%;
+  --input: 0 0% 89.8%;
+  --ring: 264 53% 60%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+  --card: 0 0% 3%;
+  --card-foreground: 0 0% 100%;
+  --popover: 0 0% 3%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 264 53% 60%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 267 71% 67%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 13%;
+  --muted-foreground: 0 0% 80%;
+  --accent: 267 71% 67%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 13%;
+  --input: 0 0% 13%;
+  --ring: 264 53% 60%;
+}
+
+/* Fix for skills buttons hover state */
+.bg-button.text-muted-foreground:hover {
+  background-color: #8261d0;
+  color: #ffffff;
+}
+
+/* Gradient text for hero section */
+.gradient-text {
+  background: linear-gradient(to right, #8261d0, #cccccc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Handle click-outside for dropdowns */
+.dropdown-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
