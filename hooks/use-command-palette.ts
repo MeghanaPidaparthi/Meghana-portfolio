@@ -8,7 +8,16 @@ export function useCommandPalette() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["hero", "about", "projects", "skills", "contact"]
+      const sections = [
+        "hero",
+        "about",
+        "education",
+        "projects",
+        "skills",
+        "certifications",
+        "clubs-leadership",
+        "contact",
+      ]
 
       for (const section of sections) {
         const element = document.getElementById(section)

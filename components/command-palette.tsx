@@ -45,9 +45,12 @@ export default function CommandPalette({ isOpen, setIsOpen, activeSection, setAc
   const commands = [
     { id: "hero", name: "Home", shortcut: "H", href: "#hero" },
     { id: "about", name: "About", shortcut: "A", href: "#about" },
+    { id: "education", name: "Education", shortcut: "E", href: "#education" },
     { id: "projects", name: "Projects", shortcut: "P", href: "#projects" },
     { id: "skills", name: "Skills", shortcut: "S", href: "#skills" },
-    { id: "contact", name: "Contact", shortcut: "C", href: "#contact" },
+    { id: "certifications", name: "Certifications", shortcut: "C", href: "#certifications" },
+    { id: "clubs-leadership", name: "Leadership", shortcut: "L", href: "#clubs-leadership" },
+    { id: "contact", name: "Contact", shortcut: "M", href: "#contact" },
     { id: "resume", name: "Resume", shortcut: "R", href: "/resume.pdf" },
   ]
 
@@ -79,7 +82,7 @@ export default function CommandPalette({ isOpen, setIsOpen, activeSection, setAc
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="bg-button border border-border rounded-xl shadow-xl w-full max-w-md overflow-hidden"
+            className="bg-card border border-border rounded-xl shadow-xl w-full max-w-md overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center border-b border-border p-3">

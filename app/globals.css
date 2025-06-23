@@ -23,6 +23,8 @@
   --input: 0 0% 89.8%;
   --ring: 264 53% 60%;
   --radius: 0.5rem;
+  --button-bg: 0 0% 96.1%;
+  --button-text: 0 0% 45.1%;
 }
 
 .dark {
@@ -45,6 +47,8 @@
   --border: 0 0% 13%;
   --input: 0 0% 13%;
   --ring: 264 53% 60%;
+  --button-bg: 0 0% 13%;
+  --button-text: 0 0% 80%;
 }
 
 /* Fix for skills buttons hover state */
@@ -67,6 +71,22 @@
   position: fixed;
   inset: 0;
   z-index: 40;
+}
+
+/* Button styles for light/dark mode */
+.custom-button {
+  @apply bg-button text-foreground border border-border/20 hover:bg-primary hover:text-white hover:border-primary/20;
+}
+
+.skill-button {
+  @apply px-3 py-1 text-sm rounded-full transition-colors duration-300;
+  background-color: hsl(var(--button-bg));
+  color: hsl(var(--button-text));
+}
+
+.skill-button:hover {
+  background-color: hsl(var(--primary));
+  color: white;
 }
 
 @layer utilities {

@@ -48,24 +48,20 @@ export default function About() {
 
             <div className="space-y-4 text-muted-foreground">
               <p>
-                I'm a sophomore student pursuing B.Tech in Computer Science with AI/ML Specialization. My journey began
-                with a fascination for the intersection of design and technology, which has evolved into a passion for
-                creating intuitive, engaging digital products.
+                Hey! I'm a pre-final B.Tech student majoring in Computer Science with a specialization in AI/ML. I'm
+                passionate about building products that don't just work—but make a difference. I enjoy making meaningful and powerful digital experiences, whether it's through clear code or user-friendly design.
               </p>
               <p>
-                My approach combines technical precision with creative vision, allowing me to transform complex ideas
-                into elegant solutions. I believe in the power of thoughtful design and clean code to create meaningful
-                user experiences.
+              My interest in the intersection of technology and design began my path, which has taken me to investigate a wide range of topics, including machine learning,Android Development and UX design. I've obtained certificates along the way, such as Google's UX Design Certificate.
               </p>
               <p>
-                When I'm not coding, you'll find me exploring new design trends, experimenting with digital art, or
-                hiking in nature to find fresh inspiration.
+              But there's more to me than just code and tech—I'm also someone who's curious about the world. I enjoy learning new languages (like Korean and Chinese!), exploring cultures, and finding inspiration in everything from digital art to long hikes in nature.
               </p>
               <p>
-                I'm actively involved in tech communities, being a member of Google Developer Groups and CSI (Computer
-                Society of India), which helps me stay connected with the latest industry trends and network with
-                like-minded individuals.
+                I'm also actively involved in tech communities like Google Developer Groups and CSI, where I stay
+                connected, keep learning, and share what I know with others.
               </p>
+              <p>Let's connect and create something that matters!</p>
             </div>
 
             <motion.div variants={itemVariants} className="mt-8 flex flex-wrap gap-3">
@@ -81,7 +77,7 @@ export default function About() {
             <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent z-10 opacity-60"></div>
               <Image
-                src="/placeholder.svg?height=500&width=400"
+                src="/profile-image.jpg?height=500&width=400"
                 alt="Profile"
                 fill
                 className="object-cover"

@@ -4,7 +4,7 @@ import type React from "react"
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import { Code, Palette, Globe, Layers, Cpu, Users } from "lucide-react"
+import { Code, Palette, Globe, Layers, Cpu, Users, Briefcase } from "lucide-react"
 
 type SkillCategory = {
   title: string
@@ -16,27 +16,32 @@ const skillCategories: SkillCategory[] = [
   {
     title: "Programming",
     icon: <Code className="w-6 h-6" />,
-    skills: ["Python", "JavaScript", "TypeScript", "Java", "C++", "HTML/CSS"],
+    skills: ["Python", "JavaScript", "TypeScript", "Java"],
   },
-  {
+ /* {
     title: "AI/ML",
     icon: <Cpu className="w-6 h-6" />,
     skills: ["TensorFlow", "PyTorch", "Scikit-learn", "Computer Vision", "NLP", "Data Analysis"],
-  },
+  },*/
   {
     title: "Web Development",
     icon: <Globe className="w-6 h-6" />,
-    skills: ["React", "Next.js", "Node.js", "Tailwind CSS", "REST APIs", "Responsive Design"],
+    skills: ["HTML", "CSS", "React", "Next.js", "Node.js", "Tailwind CSS", "REST APIs", "Responsive Design"],
   },
   {
     title: "Design",
     icon: <Palette className="w-6 h-6" />,
-    skills: ["Figma", "UI/UX", "Wireframing", "Prototyping", "Color Theory"],
+    skills: ["Figma", "UI/UX", "Wireframing", "Canva"],
   },
   {
     title: "Tools",
     icon: <Layers className="w-6 h-6" />,
-    skills: ["Git", "GitHub", "VS Code", "Jupyter Notebook", "Google Colab"],
+    skills: ["Git", "GitHub", "VS Code", "Jupyter Notebook", "Google Colab",'Android Studio'],
+  },
+  {
+    title: "Workspaces",
+    icon: <Briefcase className="w-6 h-6" />,
+    skills: ["Google Workspace", "Microsoft 365"],
   },
   {
     title: "Soft Skills",
@@ -112,7 +117,7 @@ export default function Skills() {
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
                     transition={{ delay: index * 0.1 + 0.3, duration: 0.4 }}
-                    className="px-3 py-1 text-sm rounded-full bg-button text-muted-foreground hover:bg-primary hover:text-white transition-colors duration-300"
+                    className="skill-button"
                   >
                     {skill}
                   </motion.span>

@@ -20,7 +20,16 @@ export default function Header({ setIsOpen }: HeaderProps) {
       setIsScrolled(window.scrollY > 10)
 
       // Determine active section for highlighting in navbar
-      const sections = ["hero", "about", "projects", "skills", "contact"]
+      const sections = [
+        "hero",
+        "about",
+        "education",
+        "projects",
+        "skills",
+        "certifications",
+        "clubs-leadership",
+        "contact",
+      ]
 
       for (const section of sections) {
         const element = document.getElementById(section)
@@ -51,8 +60,11 @@ export default function Header({ setIsOpen }: HeaderProps) {
   const navItems = [
     { label: "Home", href: "hero" },
     { label: "About", href: "about" },
+    { label: "Education", href: "education" },
     { label: "Projects", href: "projects" },
     { label: "Skills", href: "skills" },
+    { label: "Certifications", href: "certifications" },
+    { label: "Clubs", href: "clubs-leadership" },
     { label: "Contact", href: "contact" },
   ]
 

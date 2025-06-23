@@ -18,52 +18,52 @@ type Project = {
 
 const projects: Project[] = [
   {
-    id: 1,
-    title: "AI Study Assistant",
+    id: 2,
+    title: "AI Interview App – Smart Interview Preparation Platform",
     description:
-      "An AI-powered study assistant that helps students organize notes, create flashcards, and prepare for exams.",
+      "A web app that simulates real-time AI-driven interviews using voice agents and provides instant feedback with detailed transcripts.",
     longDescription:
-      "This AI-powered study assistant leverages natural language processing to help students organize their study materials effectively. The application can automatically generate flashcards from notes, create practice quizzes based on study material, and provide personalized study schedules. Built with React for the frontend and Python with TensorFlow for the NLP backend, this project demonstrates my interest in applying AI to solve real educational challenges.",
-    tags: ["React", "Python", "NLP", "TensorFlow"],
-    image: "/placeholder.svg?height=600&width=800",
-    link: "https://ai-study-assistant-demo.vercel.app",
-    github: "https://github.com/MeghanaPidaparthi/ai-study-assistant",
+      "This project is designed to help users prepare for interviews using advanced AI tools. It enables users to create mock interviews, converse with AI voice agents powered by Vapi and Google Gemini, and receive performance feedback instantly. Built with Next.js, Firebase Auth, and Tailwind CSS, the app also includes a dashboard to track past interviews, a dynamic interview page, and responsive UI/UX design with reusable components using shadcn/ui and Zod. It’s a personal initiative to enhance interview readiness through conversational AI.",
+    tags: ["Next.js", "Firebase", "Tailwind CSS", "Vapi AI", "Gemini", "Zod", "shadcn/ui"],
+    image: "/interview.svg",
+    link: "https://interviewprep-ai.vercel.app", // update this if you deploy!
+    github: "https://github.com/MeghanaPidaparthi/interviewprep",
   },
   {
     id: 2,
-    title: "Student Portfolio",
+    title: "Tech Stack Comparer",
     description:
-      "A responsive portfolio website showcasing academic projects and achievements with modern design principles.",
+      "A clean, responsive tool that helps developers compare programming tools and frameworks through interactive charts and intuitive UI design.",
     longDescription:
-      "This portfolio website was designed to showcase student projects and academic achievements in a visually appealing way. The site features smooth animations, responsive design for all device sizes, and an intuitive navigation system. Built with Next.js and TypeScript, the project demonstrates my frontend development skills and attention to design details. The site includes sections for projects, skills, and contact information, making it easy for potential employers or collaborators to learn about the student's capabilities.",
+      "Tech Stack Comparer helps developers evaluate and compare frameworks, libraries, and technologies based on criteria like performance, popularity, and use cases. With a clean UI and sortable charts, it’s built to simplify decision-making for both junior and experienced developers.",
     tags: ["Next.js", "TypeScript", "Framer Motion", "Tailwind CSS"],
-    image: "/placeholder.svg?height=600&width=800",
+    image: "/techstack.svg",
     link: "https://student-portfolio-demo.vercel.app",
     github: "https://github.com/MeghanaPidaparthi/student-portfolio",
   },
   {
     id: 3,
-    title: "ML Image Classifier",
+    title: "RightsRevive",
     description:
-      "A machine learning project that classifies images using convolutional neural networks with a user-friendly interface.",
+      "A legal assistant app that simplifies information on fundamental rights and laws, with regional language and accessibility support.",
     longDescription:
-      "This machine learning project uses convolutional neural networks to classify images with high accuracy. The model was trained on a diverse dataset to recognize various objects, animals, and scenes. The web interface allows users to upload their own images for classification or use their webcam for real-time object detection. The backend is built with Python and TensorFlow, while the frontend uses React to provide an intuitive user experience. This project demonstrates my skills in machine learning model development and creating user-friendly interfaces for AI applications.",
-    tags: ["Python", "TensorFlow", "React", "Flask"],
+      "RightsRevive is built to empower marginalized communities by offering simplified legal information in multiple regional languages. It includes features like speech-to-text input and aims to introduce AI-based document understanding and qualitative legal guidance to enhance accessibility for differently-abled users.",
+    tags: ["React", "Spring Boot", "MongoDB"],
     image: "/placeholder.svg?height=600&width=800",
-    link: "https://ml-image-classifier-demo.vercel.app",
-    github: "https://github.com/MeghanaPidaparthi/ml-image-classifier",
+    link: "https://rights-revive.vercel.app",
+    github: "https://github.com/MeghanaPidaparthi/rights-revive",
   },
   {
     id: 4,
-    title: "Academic Planner App",
+    title: "KalaaBazaar",
     description:
-      "A mobile-first web application for students to track assignments, schedule study sessions, and manage deadlines.",
+      "A digital marketplace connecting local artisans with buyers to promote Indian handicrafts and culture.",
     longDescription:
-      "The Academic Planner App is designed to help students manage their academic responsibilities effectively. It features a clean, intuitive interface for tracking assignments, scheduling study sessions, and managing deadlines. The app includes smart notifications to remind students of upcoming due dates, a progress tracker for long-term projects, and integration with calendar applications. Built with React and Firebase, this application demonstrates my ability to create practical tools that solve real problems for students. The responsive design ensures a seamless experience across all devices.",
-    tags: ["React", "Firebase", "Redux", "Material UI"],
+      "KalaaBazaar helps local artisans showcase and sell handmade crafts through a user-friendly web app. It highlights India’s cultural heritage while ensuring affordability and accessibility. Features include artisan profiles, category-wise listings, and responsive design.",
+    tags: ["React", "Firebase", "Firestore", "Material UI"],
     image: "/placeholder.svg?height=600&width=800",
-    link: "https://academic-planner-demo.vercel.app",
-    github: "https://github.com/MeghanaPidaparthi/academic-planner",
+    link: "",
+    github: "https://github.com/MeghanaPidaparthi/KalaaBazaar",
   },
 ]
 
