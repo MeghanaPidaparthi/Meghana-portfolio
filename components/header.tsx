@@ -2,34 +2,22 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, Command } from "lucide-react"
-import { ThemeToggle } from "./theme-toggle"
+import { motion } from "framer-motion"
+import { ArrowUp } from "lucide-react"
 
-type HeaderProps = {
-  setIsOpen: (isOpen: boolean) => void
-}
-
-export default function Header({ setIsOpen }: HeaderProps) {
+export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("hero")
+  const [showScrollTop, setShowScrollTop] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
+      const scrollY = window.scrollY
+      setIsScrolled(scrollY > 10)
+      setShowScrollTop(scrollY > 500)
 
       // Determine active section for highlighting in navbar
-      const sections = [
-        "hero",
-        "about",
-        "education",
-        "projects",
-        "skills",
-        "certifications",
-        "clubs-leadership",
-        "contact",
-      ]
+      const sections = ["hero", "about", "work-experience", "skills", "projects", "clubs-leadership", "contact"]
 
       for (const section of sections) {
         const element = document.getElementById(section)
@@ -54,131 +42,64 @@ export default function Header({ setIsOpen }: HeaderProps) {
     if (section) {
       section.scrollIntoView({ behavior: "smooth" })
     }
-    setIsMobileMenuOpen(false)
+  }
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" })
   }
 
   const navItems = [
-    { label: "Home", href: "hero" },
     { label: "About", href: "about" },
-    { label: "Education", href: "education" },
-    { label: "Projects", href: "projects" },
+    { label: "Work", href: "work-experience" },
     { label: "Skills", href: "skills" },
-    { label: "Certifications", href: "certifications" },
-    { label: "Clubs", href: "clubs-leadership" },
+    { label: "Portfolio", href: "projects" },
     { label: "Contact", href: "contact" },
   ]
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled ? "bg-background/80 backdrop-blur-md shadow-sm" : "bg-transparent"
-      }`}
-    >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          <Link href="/" className="text-xl font-bold font-heading">
-            <span className="text-primary">Meghana</span> Pidaparthi
-          </Link>
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+          isScrolled ? "bg-background/90 backdrop-blur-md shadow-sm border-b border-border/20" : "bg-transparent"
+        }`}
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <Link href="/" className="text-lg sm:text-xl font-bold font-heading">
+              <span className="text-primary">Meghana</span> Pidaparthi
+            </Link>
 
-          <nav className="hidden md:flex items-center space-x-6">
-            {navItems.map((item) => (
-              <button
-                key={item.label}
-                onClick={() => scrollToSection(item.href)}
-                className={`text-sm font-medium transition-colors ${
-                  activeSection === item.href ? "text-primary" : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
-
-            <ThemeToggle />
-
-            <button
-              onClick={() => setIsOpen(true)}
-              className="flex items-center gap-1 px-3 py-1.5 rounded-md border border-border text-xs text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <Command size={14} />
-              <span>Cmd + K</span>
-            </button>
-          </nav>
-
-          <div className="flex items-center gap-2 md:hidden">
-            <ThemeToggle />
-            <button
-              onClick={() => setIsMobileMenuOpen(true)}
-              className="p-2 text-muted-foreground hover:text-foreground"
-              aria-label="Open menu"
-            >
-              <Menu size={24} />
-            </button>
+            <nav className="flex items-center space-x-6 sm:space-x-8">
+              {navItems.map((item) => (
+                <button
+                  key={item.label}
+                  onClick={() => scrollToSection(item.href)}
+                  className={`text-sm font-medium transition-colors hover:text-primary ${
+                    activeSection === item.href ? "text-primary" : "text-muted-foreground"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </nav>
           </div>
         </div>
-      </div>
+      </header>
 
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-background md:hidden"
-          >
-            <div className="container mx-auto px-4 py-6 h-full flex flex-col">
-              <div className="flex items-center justify-between mb-8">
-                <Link href="/" className="text-xl font-bold font-heading">
-                  <span className="text-primary">Meghana</span> Pidaparthi
-                </Link>
-
-                <div className="flex items-center gap-2">
-                  <ThemeToggle />
-                  <button
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="p-2 text-muted-foreground hover:text-foreground"
-                    aria-label="Close menu"
-                  >
-                    <X size={24} />
-                  </button>
-                </div>
-              </div>
-
-              <nav className="flex flex-col space-y-6 items-center justify-center flex-1">
-                {navItems.map((item, index) => (
-                  <motion.div
-                    key={item.label}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <button
-                      onClick={() => scrollToSection(item.href)}
-                      className={`text-2xl font-medium transition-colors ${
-                        activeSection === item.href ? "text-primary" : "hover:text-primary"
-                      }`}
-                    >
-                      {item.label}
-                    </button>
-                  </motion.div>
-                ))}
-              </nav>
-
-              <div className="mt-auto pt-8 flex justify-center">
-                <button
-                  onClick={() => {
-                    setIsMobileMenuOpen(false)
-                    setIsOpen(true)
-                  }}
-                  className="flex items-center gap-2 px-4 py-2 rounded-md border border-border text-sm"
-                >
-                  <Command size={16} />
-                  <span>Search</span>
-                </button>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </header>
+      {/* Scroll to Top Button */}
+      <motion.button
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{
+          opacity: showScrollTop ? 1 : 0,
+          scale: showScrollTop ? 1 : 0,
+        }}
+        transition={{ duration: 0.2 }}
+        onClick={scrollToTop}
+        className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-primary text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+        aria-label="Scroll to top"
+      >
+        <ArrowUp size={20} />
+      </motion.button>
+    </>
   )
 }

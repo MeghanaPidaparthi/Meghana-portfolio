@@ -46,6 +46,7 @@ export default function CommandPalette({ isOpen, setIsOpen, activeSection, setAc
     { id: "hero", name: "Home", shortcut: "H", href: "#hero" },
     { id: "about", name: "About", shortcut: "A", href: "#about" },
     { id: "education", name: "Education", shortcut: "E", href: "#education" },
+    { id: "work-experience", name: "Experience", shortcut: "W", href: "#work-experience" },
     { id: "projects", name: "Projects", shortcut: "P", href: "#projects" },
     { id: "skills", name: "Skills", shortcut: "S", href: "#skills" },
     { id: "certifications", name: "Certifications", shortcut: "C", href: "#certifications" },

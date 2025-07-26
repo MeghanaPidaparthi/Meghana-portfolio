@@ -6,6 +6,7 @@ import Header from "@/components/header"
 import Hero from "@/components/hero"
 import About from "@/components/about"
 import Education from "@/components/education"
+import WorkExperience from "@/components/work-experience"
 import Projects from "@/components/projects"
 import Skills from "@/components/skills"
 import Certifications from "@/components/certifications"
@@ -43,9 +44,9 @@ export default function Home() {
         <Hero />
         <About />
         <Education />
+        <WorkExperience />
         <Projects />
         <Skills />
-        <Certifications />
         <ClubsLeadership />
         <Contact />
       </main>

@@ -60,11 +60,15 @@ export default function Hero() {
           animate="visible"
           className="max-w-4xl mx-auto text-center"
         >
+          <motion.p variants={itemVariants} className="text-lg md:text-xl text-muted-foreground mb-2">
+            Hi, I'm
+          </motion.p>
+
           <motion.h1
             variants={itemVariants}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold font-heading mb-6 text-foreground"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold font-heading mb-8 text-foreground"
           >
-            Hi, I'm <span className="gradient-text">Meghana Pidaparthi</span>
+            <span className="gradient-text">Meghana Pidaparthi</span>
           </motion.h1>
 
           <motion.p variants={itemVariants} className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -73,12 +77,13 @@ export default function Hero() {
 
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="https://drive.google.com/file/d/1ciUyhtZKQi6-IySZ0Yfq0aCAnDuLzPlM/view?usp=sharing"
+              href="https://drive.google.com/file/d/1afd_f1aM27AX0sWmEbuNUe7KdKaMltk_/view?usp=sharing"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:scale-105 w-full sm:w-auto"
             >
-              View Resume
+              <Download className="mr-2 h-4 w-4" />
+              Download Resume
             </a>
 
             <button

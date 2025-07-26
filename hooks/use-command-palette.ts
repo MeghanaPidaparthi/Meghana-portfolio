@@ -12,6 +12,7 @@ export function useCommandPalette() {
         "hero",
         "about",
         "education",
+        "work-experience",
         "projects",
         "skills",
         "certifications",
