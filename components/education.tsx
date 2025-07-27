@@ -21,7 +21,7 @@ const educationData: Education[] = [
     location: "Hyderabad, India",
     duration: "2023 - 2027",
     gpa: "8.92 CGPA",
-    coursework: ["Web Development", "Mobile Development", "AI/ML"],
+    coursework: ["Web Development", "Mobile Development", "AI/ML","Generative AI","Data Structures and Algorithms"],
     type: "university",
   },
   {
