@@ -2,13 +2,14 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { motion } from "framer-motion"
-import { ArrowUp } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
+import { ArrowUp, Menu, X } from "lucide-react"
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState("hero")
   const [showScrollTop, setShowScrollTop] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,6 +43,7 @@ export default function Header() {
     if (section) {
       section.scrollIntoView({ behavior: "smooth" })
     }
+    setIsMobileMenuOpen(false) // Close mobile menu after navigation
   }
 
   const scrollToTop = () => {
@@ -65,11 +67,13 @@ export default function Header() {
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <Link href="/" className="text-lg sm:text-xl font-bold font-heading">
+            {/* Logo */}
+            <Link href="/" className="text-lg sm:text-xl font-bold font-heading z-50 relative">
               <span className="text-primary">Meghana</span> Pidaparthi
             </Link>
 
-            <nav className="flex items-center space-x-6 sm:space-x-8">
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
               {navItems.map((item) => (
                 <button
                   key={item.label}
@@ -82,8 +86,55 @@ export default function Header() {
                 </button>
               ))}
             </nav>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden p-2 rounded-lg hover:bg-button/20 transition-colors z-50 relative"
+              aria-label="Toggle mobile menu"
+            >
+              {isMobileMenuOpen ? (
+                <X size={24} className="text-foreground" />
+              ) : (
+                <Menu size={24} className="text-foreground" />
+              )}
+            </button>
           </div>
         </div>
+
+        {/* Mobile Navigation Menu */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="md:hidden bg-background/95 backdrop-blur-md border-t border-border/20 overflow-hidden"
+            >
+              <div className="container mx-auto px-4 py-4">
+                <nav className="flex flex-col space-y-4">
+                  {navItems.map((item, index) => (
+                    <motion.button
+                      key={item.label}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1, duration: 0.3 }}
+                      onClick={() => scrollToSection(item.href)}
+                      className={`text-left py-2 px-4 rounded-lg text-base font-medium transition-colors ${
+                        activeSection === item.href
+                          ? "text-primary bg-primary/10"
+                          : "text-muted-foreground hover:text-primary hover:bg-button/20"
+                      }`}
+                    >
+                      {item.label}
+                    </motion.button>
+                  ))}
+                </nav>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
 
       {/* Scroll to Top Button */}
@@ -100,6 +151,20 @@ export default function Header() {
       >
         <ArrowUp size={20} />
       </motion.button>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-background/20 backdrop-blur-sm z-30 md:hidden"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+        )}
+      </AnimatePresence>
     </>
   )
 }
